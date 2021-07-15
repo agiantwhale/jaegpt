@@ -82,7 +82,7 @@ def gen_response(
         gen_args = {}
         gen_args["max_length"] = bot_input_ids.shape[-1] + 1000
     else:
-        gen_args = vars(args)
+        gen_args = vars(args).copy()
         gen_args["max_length"] += bot_input_ids.shape[-1]
         if args.use_token_type_ids:
             gen_args["token_type_ids"] = token_type_ids
