@@ -19,14 +19,14 @@ class Arguments:
     baseline_checkpoint: Optional[str] = field(default="microsoft/DialoGPT-small")
     max_history: Optional[int] = field(default=4)
     seed: Optional[int] = field(default=0xDEADBEAF)
-    max_length: Optional[int] = field(default=10)
+    max_length: Optional[int] = field(default=20)
     min_length: Optional[int] = field(default=None)
     do_sample: Optional[bool] = field(default=True)
     early_stopping: Optional[bool] = field(default=None)
     num_beams: Optional[int] = field(default=None)
     temperature: Optional[float] = field(default=0.8)
     top_k: Optional[int] = field(default=100)
-    top_p: Optional[float] = field(default=0.7)
+    top_p: Optional[float] = field(default=0.25)
     repetition_penalty: Optional[float] = field(default=None)
     bad_words_ids: Optional[Iterable[int]] = field(default=None)
     length_penalty: Optional[float] = field(default=None)
@@ -47,7 +47,7 @@ class Arguments:
     forced_eos_token_id: Optional[int] = field(default=None)
     remove_invalid_values: Optional[bool] = field(default=None)
     synced_gpus: Optional[bool] = field(default=None)
-    use_token_type_ids: Optional[bool] = field(default=False)
+    use_token_type_ids: Optional[bool] = field(default=True)
 
 
 def gen_response(
