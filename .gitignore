@@ -147,3 +147,4 @@ models/
 tensorboard/
 chat/
 candidates/
+wandb/
