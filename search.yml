@@ -1,0 +1,52 @@
+program: jaegpt/run_clm.py
+method: bayes
+metric:
+  goal: minimize
+  name: eval/lm_loss
+parameters:
+  train_file:
+    value: /content/drive/MyDrive/ColabData/input_data/fb_train.json
+  validation_file:
+    value: /content/drive/MyDrive/ColabData/input_data/fb_test.json
+  output_dir:
+    value: /tmp/hp_search
+  overwrite_output_dir:
+    value: true
+  gradient_accumulation_steps:
+    value: 1
+  per_device_train_batch_size:
+    value: 1
+  per_device_eval_batch_size:
+    value: 1
+  preprocessing_num_workers:
+    value: 4
+  dataloader_num_workers:
+    value: 4
+  block_size:
+    value: 128
+  model_name_or_path:
+    value: microsoft/DialoGPT-small
+  report_to:
+    value: all
+  logging_dir:
+    value: tensorboard
+  logging_steps:
+    value: 250
+  evaluation_strategy:
+    value: steps
+  do_train:
+    value: true
+  do_eval:
+    value: true
+  seed:
+    value: 1337
+  lm_task_weight:
+    value: 1.0
+  mc_task_weight:
+    min: -3.0
+    max: 3.0
+    distribution: log_uniform
+  learning_rate:
+    max: 0
+    min: -8
+    distribution: log_uniform
