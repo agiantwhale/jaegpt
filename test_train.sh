@@ -1,11 +1,9 @@
-rm -rf models tensorboard $HOME/.cache/huggingface/datasets
-
 python run_clm.py \
     --train_file ./fb_data/sanitized/fb_train.json \
     --validation_file ./fb_data/sanitized/fb_test.json \
     --block_size 128 \
     --output_dir ./models/test \
-    --overwrite_cache true \
+    --overwrite_output_dir true \
     --do_train \
     --do_eval \
     --max_steps 10 \
