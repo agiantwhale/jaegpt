@@ -17,7 +17,7 @@ parameters:
   per_device_train_batch_size:
     value: 1
   per_device_eval_batch_size:
-    value: 1
+    value: 16
   preprocessing_num_workers:
     value: 4
   dataloader_num_workers:
@@ -27,13 +27,7 @@ parameters:
   model_name_or_path:
     value: microsoft/DialoGPT-small
   report_to:
-    value: all
-  logging_dir:
-    value: tensorboard
-  logging_steps:
-    value: 250
-  evaluation_strategy:
-    value: steps
+    value: 'wandb'
   do_train:
     value: true
   do_eval:
@@ -42,15 +36,17 @@ parameters:
     value: 1337
   lm_task_weight:
     value: 1.0
-  mc_task_weight:
-    min: -3.0
-    max: 3.0
-    distribution: log_uniform
+  logging_strategy:
+    value: 'no'
+  evaluation_strategy:
+    value: 'no'
   save_strategy:
     value: 'no'
-  max_steps:
-    value: 10
+  mc_task_weight:
+    max: 7.0
+    min: -7.0
+    distribution: log_uniform
   learning_rate:
     max: 0
-    min: -8
+    min: -25
     distribution: log_uniform
