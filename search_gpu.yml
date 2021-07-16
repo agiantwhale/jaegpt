@@ -47,10 +47,6 @@ parameters:
     value: 'no'
   save_strategy:
     value: 'no'
-  gradient_accumulation_steps:
-    max: 20
-    min: 1
-    distribution: int_uniform
   mc_task_weight:
     max: 7.0
     min: -7.0
