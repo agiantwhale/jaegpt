@@ -1,5 +1,5 @@
 project: dialo-fbgpt
-program: jaegpt/run_clm.py
+program: jaegpt/run_clm_tpu.py
 method: bayes
 metric:
   goal: minimize
@@ -55,3 +55,10 @@ parameters:
     max: 0
     min: -25
     distribution: log_uniform
+command:
+  - ${env}
+  - python
+  - ${program}
+  - "--num_cores"
+  - 8
+  - ${args}

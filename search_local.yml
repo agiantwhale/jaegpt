@@ -1,9 +1,12 @@
+project: dialo-fbgpt
 program: run_clm.py
 method: bayes
 metric:
   goal: minimize
   name: eval/lm_loss
 parameters:
+  run_name:
+    value: 'sweep-run'
   train_file:
     value: ./fb_data/sanitized/fb_train.json
   validation_file:
@@ -28,6 +31,8 @@ parameters:
     value: microsoft/DialoGPT-small
   report_to:
     value: 'wandb'
+  num_train_epochs:
+    value: 1
   do_train:
     value: true
   do_eval:
