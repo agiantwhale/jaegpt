@@ -52,6 +52,6 @@ parameters:
     min: -7.0
     distribution: log_uniform
   learning_rate:
-    max: 0
-    min: -25
-    distribution: log_uniform
+    mu: -10
+    sigma: 3.33
+    distribution: log_normal
