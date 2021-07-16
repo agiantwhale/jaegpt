@@ -43,10 +43,10 @@ parameters:
   save_strategy:
     value: 'no'
   mc_task_weight:
-    min: -3.0
-    max: 3.0
+    max: 7.0
+    min: -7.0
     distribution: log_uniform
   learning_rate:
     max: 0
-    min: -8
+    min: -25
     distribution: log_uniform
