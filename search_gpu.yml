@@ -15,10 +15,6 @@ parameters:
     value: ./models/hp_search
   overwrite_output_dir:
     value: true
-  gradient_accumulation_steps:
-    value: 1
-  per_device_train_batch_size:
-    value: 1
   per_device_eval_batch_size:
     value: 4
   preprocessing_num_workers:
@@ -31,8 +27,6 @@ parameters:
     value: microsoft/DialoGPT-small
   report_to:
     value: 'wandb'
-  num_train_epochs:
-    value: 1
   do_train:
     value: true
   do_eval:
@@ -47,9 +41,26 @@ parameters:
     value: 'no'
   save_strategy:
     value: 'no'
+  num_train_epochs:
+    max: 4
+    min: 1
+    distribution: int_uniform
+  gradient_accumulation_steps:
+    values: 
+    - 1
+    - 2
+    - 4
+    - 8
+    - 16
+  per_device_train_batch_size:
+    values: 
+    - 1
+    - 2
+    - 4
+    - 8
   mc_task_weight:
-    max: 7.0
-    min: -7.0
+    max: 5.0
+    min: -10.0
     distribution: log_uniform
   learning_rate:
     mu: -10
